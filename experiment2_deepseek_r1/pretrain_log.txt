@@ -1,0 +1,22 @@
+corpus: 3,534,718 tokens, vocab_size=28
+model: 808,704 parameters
+step     0 | loss 3.4279 | 0s
+step   250 | loss 0.6490 | 71s
+step   500 | loss 0.4074 | 141s
+step   750 | loss 0.3083 | 210s
+step  1000 | loss 0.2785 | 279s
+step  1250 | loss 0.2727 | 348s
+step  1500 | loss 0.2806 | 417s
+step  1750 | loss 0.2770 | 486s
+step  2000 | loss 0.2656 | 554s
+step  2250 | loss 0.2617 | 623s
+step  2500 | loss 0.2556 | 694s
+step  2750 | loss 0.2470 | 763s
+step  2999 | loss 0.2570 | 832s
+saved base_model.pt
+base model (sampled): accuracy=56.50% format=85.00%
+   16+44=<think>6+4=10,10+40=50,50+10=60</think><answer>60</answer>   [truth=60 OK]
+   62+44=<think>2+4=6,60+40=100,100+6=106</think><answer>106</answer>   [truth=106 OK]
+   58-14=<think>50-10=30,8-4=4,30+4=34</think><answer>34</answer>   [truth=44 WRONG]
+   53-52=<think>50-50=0,4-2=2,0+2=2</think><answer>2</answer>   [truth=1 WRONG]
+   30+27=<think>0+7=7,30+20=50,50+7=57</think><answer>57</answer>   [truth=57 OK]
