@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+# model checkpoints are reproducible from the scripts; keep the repo light
+*.pt
+*.pkl
