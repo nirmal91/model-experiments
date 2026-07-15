@@ -45,9 +45,9 @@ class GRPOConfig:
     clip_eps: float = 0.2        # PPO-style ratio clip
     kl_beta: float = 0.02        # weight of KL(pi_theta || pi_ref)
     inner_epochs: int = 2        # mu: gradient updates per sampled batch
-    lr: float = 3e-4
-    temperature: float = 1.0
-    total_steps: int = 200
+    lr: float = 1e-4
+    temperature: float = 0.9
+    total_steps: int = 250
     log_every: int = 5
     seed: int = 0
 

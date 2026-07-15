@@ -28,7 +28,7 @@ from tasks import EOS_CHAR, PROMPT_LEN, compute_reward, make_problem, make_sft_e
 parser = argparse.ArgumentParser()
 parser.add_argument('--sft-examples', type=int, default=512)
 parser.add_argument('--sft-epochs', type=int, default=3)
-parser.add_argument('--steps', type=int, default=150)
+parser.add_argument('--steps', type=int, default=250)
 parser.add_argument('--smoke-test', action='store_true')
 args = parser.parse_args()
 
@@ -78,7 +78,7 @@ print(f"after cold start (greedy): accuracy={mid['accuracy']:.2%} "
 ref = copy.deepcopy(model)  # KL reference = the SFT checkpoint
 cfg = GRPOConfig(total_steps=3 if args.smoke_test else args.steps,
                  group_size=8, prompts_per_step=8, kl_beta=0.02,
-                 inner_epochs=2, lr=3e-4, seed=1)
+                 inner_epochs=2, lr=1e-4, temperature=0.9, seed=1)
 history = GRPOTrainer(model, ref, tok, make_problem, compute_reward, cfg,
                       eos_char=EOS_CHAR).train()
 

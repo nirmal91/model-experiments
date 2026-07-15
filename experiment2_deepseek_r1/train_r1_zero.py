@@ -21,7 +21,7 @@ from grpo import GRPOConfig, GRPOTrainer
 from tasks import EOS_CHAR, compute_reward, make_problem
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--steps', type=int, default=150)
+parser.add_argument('--steps', type=int, default=250)
 parser.add_argument('--smoke-test', action='store_true')
 args = parser.parse_args()
 
@@ -35,7 +35,7 @@ print(f"before RL (greedy): accuracy={pre['accuracy']:.2%} format={pre['format']
 
 cfg = GRPOConfig(total_steps=3 if args.smoke_test else args.steps,
                  group_size=8, prompts_per_step=8, kl_beta=0.02,
-                 inner_epochs=2, lr=3e-4)
+                 inner_epochs=2, lr=1e-4, temperature=0.9)
 
 sample_file = open('r1_zero_samples.txt', 'w')
 
