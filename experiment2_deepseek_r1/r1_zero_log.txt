@@ -1,0 +1,59 @@
+before RL (greedy): accuracy=91.00% format=95.00%
+step    0 | reward 0.742 | acc 0.38 | fmt 0.73 | len 49 | kl 0.0091
+step    5 | reward 0.977 | acc 0.50 | fmt 0.95 | len 56 | kl 0.0282
+step   10 | reward 1.078 | acc 0.59 | fmt 0.97 | len 57 | kl 0.0089
+step   15 | reward 1.203 | acc 0.70 | fmt 1.00 | len 57 | kl 0.0150
+step   20 | reward 1.258 | acc 0.78 | fmt 0.95 | len 57 | kl 0.0129
+step   25 | reward 1.344 | acc 0.84 | fmt 1.00 | len 57 | kl 0.0103
+step   30 | reward 1.375 | acc 0.88 | fmt 1.00 | len 57 | kl 0.0086
+step   35 | reward 1.203 | acc 0.70 | fmt 1.00 | len 58 | kl 0.0134
+step   40 | reward 1.172 | acc 0.67 | fmt 1.00 | len 57 | kl 0.0360
+step   45 | reward 1.336 | acc 0.84 | fmt 0.98 | len 56 | kl 0.0244
+step   50 | reward 1.391 | acc 0.89 | fmt 1.00 | len 57 | kl 0.0045
+step   55 | reward 1.359 | acc 0.86 | fmt 1.00 | len 57 | kl 0.0147
+step   60 | reward 1.328 | acc 0.83 | fmt 1.00 | len 58 | kl 0.0199
+step   65 | reward 1.359 | acc 0.86 | fmt 1.00 | len 58 | kl 0.0073
+step   70 | reward 1.352 | acc 0.86 | fmt 0.98 | len 58 | kl 0.0077
+step   75 | reward 1.367 | acc 0.88 | fmt 0.98 | len 58 | kl 0.0117
+step   80 | reward 1.328 | acc 0.84 | fmt 0.97 | len 57 | kl 0.0439
+step   85 | reward 1.430 | acc 0.94 | fmt 0.98 | len 56 | kl 0.0239
+step   90 | reward 1.344 | acc 0.84 | fmt 1.00 | len 58 | kl 0.0144
+step   95 | reward 1.438 | acc 0.94 | fmt 1.00 | len 57 | kl 0.0043
+step  100 | reward 1.281 | acc 0.80 | fmt 0.97 | len 57 | kl 0.0073
+step  105 | reward 1.406 | acc 0.91 | fmt 1.00 | len 56 | kl 0.0076
+step  110 | reward 1.359 | acc 0.86 | fmt 1.00 | len 57 | kl 0.0205
+step  115 | reward 1.359 | acc 0.86 | fmt 1.00 | len 59 | kl 0.0147
+step  120 | reward 1.422 | acc 0.92 | fmt 1.00 | len 56 | kl 0.0097
+step  125 | reward 1.367 | acc 0.88 | fmt 0.98 | len 58 | kl 0.0106
+step  130 | reward 1.375 | acc 0.88 | fmt 1.00 | len 58 | kl 0.0069
+step  135 | reward 1.375 | acc 0.88 | fmt 1.00 | len 56 | kl 0.0148
+step  140 | reward 1.367 | acc 0.88 | fmt 0.98 | len 58 | kl 0.0327
+step  145 | reward 1.297 | acc 0.80 | fmt 1.00 | len 58 | kl 0.0195
+step  150 | reward 1.391 | acc 0.89 | fmt 1.00 | len 59 | kl 0.0027
+step  155 | reward 1.414 | acc 0.92 | fmt 0.98 | len 57 | kl 0.0293
+step  160 | reward 1.344 | acc 0.84 | fmt 1.00 | len 58 | kl 0.0048
+step  165 | reward 1.406 | acc 0.91 | fmt 1.00 | len 58 | kl 0.0061
+step  170 | reward 1.359 | acc 0.86 | fmt 1.00 | len 57 | kl 0.0114
+step  175 | reward 1.445 | acc 0.95 | fmt 0.98 | len 57 | kl 0.0044
+step  180 | reward 1.445 | acc 0.95 | fmt 0.98 | len 58 | kl 0.0093
+step  185 | reward 1.406 | acc 0.92 | fmt 0.97 | len 58 | kl 0.0098
+step  190 | reward 1.469 | acc 0.97 | fmt 1.00 | len 58 | kl 0.0029
+step  195 | reward 1.367 | acc 0.88 | fmt 0.98 | len 58 | kl 0.0067
+step  200 | reward 1.438 | acc 0.94 | fmt 1.00 | len 58 | kl 0.0080
+step  205 | reward 1.422 | acc 0.92 | fmt 1.00 | len 59 | kl 0.0180
+step  210 | reward 1.422 | acc 0.92 | fmt 1.00 | len 58 | kl 0.0160
+step  215 | reward 1.484 | acc 0.98 | fmt 1.00 | len 58 | kl 0.0030
+step  220 | reward 1.484 | acc 0.98 | fmt 1.00 | len 58 | kl 0.0035
+step  225 | reward 1.328 | acc 0.83 | fmt 1.00 | len 58 | kl 0.0292
+step  230 | reward 1.438 | acc 0.94 | fmt 1.00 | len 59 | kl 0.0086
+step  235 | reward 1.367 | acc 0.88 | fmt 0.98 | len 57 | kl 0.0200
+step  240 | reward 1.406 | acc 0.91 | fmt 1.00 | len 57 | kl 0.0186
+step  245 | reward 1.438 | acc 0.94 | fmt 1.00 | len 59 | kl 0.0112
+step  249 | reward 1.406 | acc 0.91 | fmt 1.00 | len 59 | kl 0.0022
+after RL (greedy):  accuracy=100.00% format=100.00%
+--- final samples ---
+   16+44=<think>6+4=10,10+40=50,50+10=60</think><answer>60</answer>   [truth=60 OK]
+   62+44=<think>2+4=6,60+40=100,100+6=106</think><answer>106</answer>   [truth=106 OK]
+   58-14=<think>50-10=40,8-4=4,40+4=44</think><answer>44</answer>   [truth=44 OK]
+   53-52=<think>50-50=0,3-2=1,0+1=1</think><answer>1</answer>   [truth=1 OK]
+   30+27=<think>0+7=7,30+20=50,50+7=57</think><answer>57</answer>   [truth=57 OK]
