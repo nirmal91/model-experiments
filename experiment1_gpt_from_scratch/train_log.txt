@@ -1,0 +1,16 @@
+dataset: 1,115,394 tokens, vocab_size=65
+model: 813,440 parameters (4 layers, 4 heads, 128 dim)
+step     0 | train 4.1832 | val 4.1800 | lr 1.00e-05 | 13s
+step   250 | train 2.4018 | val 2.4106 | lr 9.94e-04 | 73s
+step   500 | train 2.1710 | val 2.2101 | lr 9.58e-04 | 133s
+step   750 | train 1.9744 | val 2.0468 | lr 8.93e-04 | 193s
+step  1000 | train 1.8460 | val 1.9508 | lr 8.03e-04 | 254s
+step  1250 | train 1.7344 | val 1.8987 | lr 6.94e-04 | 778s
+step  1500 | train 1.6793 | val 1.8451 | lr 5.74e-04 | 841s
+step  1750 | train 1.6208 | val 1.7932 | lr 4.53e-04 | 1216s
+step  2000 | train 1.5943 | val 1.7684 | lr 3.39e-04 | 1746s
+step  2250 | train 1.5646 | val 1.7317 | lr 2.41e-04 | 1943s
+step  2500 | train 1.5375 | val 1.7052 | lr 1.64e-04 | 2279s
+step  2750 | train 1.5272 | val 1.7065 | lr 1.16e-04 | 2890s
+step  2999 | train 1.5167 | val 1.6863 | lr 1.00e-04 | 3535s
+saved gpt_shakespeare.pt
