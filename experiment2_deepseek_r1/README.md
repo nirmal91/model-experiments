@@ -10,7 +10,7 @@ unreliable base model into a reliable reasoner.
 
 | Paper | Here |
 |---|---|
-| DeepSeek-V3-Base (671B MoE) | 0.86M-param char-GPT (experiment 1's `model.py`) |
+| DeepSeek-V3-Base (671B MoE) | 0.81M-param char-GPT (experiment 1's `model.py`) |
 | Math / code / STEM problems | 2-digit arithmetic: `47+38=` |
 | `<think>…</think><answer>…</answer>` template | identical |
 | Rule-based accuracy + format rewards | identical (`tasks.py`) |
@@ -49,7 +49,47 @@ python plot_curves.py       # -> curves.png
 
 ## Results (this repo's actual run)
 
-<!-- RESULTS -->
+![training curves](curves.png)
+
+Greedy (pass@1-style) evaluation on 200 held-out problems:
+
+| checkpoint | accuracy | format |
+|---|---|---|
+| base model (after noisy pretraining) | 91.0% | 95.0% |
+| base, **sampled** at RL temperature | ~38–56% | ~73–85% |
+| **R1-Zero** (base + 250 GRPO steps) | **100.0%** | **100.0%** |
+| R1 cold-start SFT only (512 examples) | 100.0% | 100.0% |
+| **R1** (SFT + 250 GRPO steps) | **100.0%** | **100.0%** |
+
+During RL rollouts (temperature 0.9), R1-Zero's sampled accuracy climbed
+**38% → ~92%**, format compliance **73% → 100%**, mean reward **0.74 → 1.44**
+(max 1.5). The failure mode RL had to fix is visible in
+`r1_zero_samples.txt` — early rollouts contain corrupted reasoning learned
+from the noisy corpus:
+
+```
+[step 0]  95-64=<think>90-60=4,50+4=54</think><answer>54</answer>      (truth=31)
+[step 10] 95-87=<think>90-80=1,5-7=-2,10-2=8</think><answer>8,41+8=11</answer>  (malformed)
+...
+[step 149] 83-39=<think>80-30=50,3-9=-6,50-6=44</think><answer>44</answer>  (correct)
+```
+
+The paper's observations, reproduced at ~1/800,000th the scale:
+
+- **Pure RL works** (R1-Zero): no correct labels ever shown, only
+  "was the sampled answer right" — and the policy converges to reliable,
+  correctly-formatted reasoning.
+- **Format locks in before accuracy** — the cheap 0.5 reward saturates by
+  ~step 20, the 1.0 accuracy reward takes ~200 steps.
+- **Cold start pays** (R1): SFT on 512 clean traces starts RL at reward 1.45
+  vs R1-Zero's 0.74 — the pipeline's stage 1 exists precisely for this.
+  (At this toy scale SFT alone already nails the task; in the paper the gap
+  between cold-start and converged is where RL earns its keep.)
+- One caveat we hit ourselves: our first RL run (lr 3e-4, temperature 1.0)
+  *improved sampled accuracy but degraded greedy accuracy* 91% → 85% —
+  over-hot updates blur the very mode you're trying to sharpen. Gentler
+  updates (lr 1e-4, temp 0.9) fixed it. RLHF-style training is genuinely
+  touchy about this; the KL leash alone doesn't save you.
 
 ## What to look for
 

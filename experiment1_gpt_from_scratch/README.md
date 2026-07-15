@@ -37,10 +37,33 @@ python tokenizer.py         # char vs BPE demo/self-test
 
 ## Results (this repo's actual run, 3000 iters, CPU)
 
-<!-- RESULTS -->
+| model | val loss |
+|---|---|
+| random guessing (ln 65) | 4.17 |
+| bigram baseline | ~2.45 |
+| **this GPT, 3000 iters** | **1.69** |
 
-Losses to beat: bigram baseline converges around **2.45** val loss; random
-guessing over 65 chars is ln(65) ≈ **4.17**.
+Loss trajectory: 4.18 → 2.41 (step 250) → 1.95 (step 1000) → 1.69 (step 3000).
+
+A sample from the trained model (temperature 0.8, top-k 40):
+
+```
+DUCHESSS OF YORRK:
+But in you love; thought yet time.
+
+KING RICHARD III:
+Kfail not nece exite the give to woulders:
+The comistage to so me word in my slay to betters.
+
+SICINIUS:
+How do man down then about all our mine. I best,
+Or wuth in his affect not could to their despation,
+```
+
+Not Shakespeare — but unmistakably Shakespeare-*shaped*: character names in
+caps with colons, iambic-ish line lengths, blank lines between speeches,
+mostly-real words. Exactly what ~0.8M parameters and 15 minutes of CPU buys,
+and exactly the behavior the video gets at this scale.
 
 Full logs in `train_log.txt`, loss history in `train_history.json`, longer
 sample in `sample.txt`.

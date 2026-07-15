@@ -1,0 +1,63 @@
+cold-start SFT: 512 examples, 3 epochs
+  epoch 0: sft loss 0.0142
+  epoch 1: sft loss 0.0039
+  epoch 2: sft loss 0.0022
+after cold start (greedy): accuracy=100.00% format=100.00%
+step    0 | reward 1.453 | acc 0.95 | fmt 1.00 | len 57 | kl 0.0296
+step    5 | reward 1.344 | acc 0.84 | fmt 1.00 | len 58 | kl 0.0002
+step   10 | reward 1.297 | acc 0.80 | fmt 1.00 | len 59 | kl 0.0060
+step   15 | reward 1.344 | acc 0.84 | fmt 1.00 | len 58 | kl 0.0028
+step   20 | reward 1.305 | acc 0.81 | fmt 0.98 | len 56 | kl 0.0016
+step   25 | reward 1.438 | acc 0.94 | fmt 1.00 | len 58 | kl 0.0005
+step   30 | reward 1.398 | acc 0.91 | fmt 0.98 | len 57 | kl 0.0011
+step   35 | reward 1.172 | acc 0.69 | fmt 0.97 | len 58 | kl 0.0089
+step   40 | reward 1.180 | acc 0.70 | fmt 0.95 | len 58 | kl 0.0197
+step   45 | reward 1.383 | acc 0.89 | fmt 0.98 | len 58 | kl 0.0138
+step   50 | reward 1.406 | acc 0.91 | fmt 1.00 | len 56 | kl 0.0010
+step   55 | reward 1.438 | acc 0.94 | fmt 1.00 | len 58 | kl 0.0158
+step   60 | reward 1.430 | acc 0.94 | fmt 0.98 | len 58 | kl 0.0105
+step   65 | reward 1.391 | acc 0.89 | fmt 1.00 | len 57 | kl 0.0042
+step   70 | reward 1.344 | acc 0.84 | fmt 1.00 | len 58 | kl 0.0061
+step   75 | reward 1.406 | acc 0.91 | fmt 1.00 | len 58 | kl 0.0605
+step   80 | reward 1.430 | acc 0.94 | fmt 0.98 | len 59 | kl 0.0015
+step   85 | reward 1.281 | acc 0.78 | fmt 1.00 | len 58 | kl 0.0180
+step   90 | reward 1.391 | acc 0.89 | fmt 1.00 | len 59 | kl 0.0176
+step   95 | reward 1.383 | acc 0.89 | fmt 0.98 | len 59 | kl 0.0026
+step  100 | reward 1.328 | acc 0.83 | fmt 1.00 | len 58 | kl 0.0042
+step  105 | reward 1.344 | acc 0.84 | fmt 1.00 | len 58 | kl 0.0188
+step  110 | reward 1.312 | acc 0.81 | fmt 1.00 | len 59 | kl 0.0154
+step  115 | reward 1.422 | acc 0.92 | fmt 1.00 | len 58 | kl 0.0019
+step  120 | reward 1.453 | acc 0.95 | fmt 1.00 | len 59 | kl 0.0048
+step  125 | reward 1.438 | acc 0.94 | fmt 1.00 | len 56 | kl 0.0026
+step  130 | reward 1.109 | acc 0.61 | fmt 1.00 | len 56 | kl 0.0573
+step  135 | reward 1.469 | acc 0.97 | fmt 1.00 | len 56 | kl 0.0048
+step  140 | reward 1.453 | acc 0.95 | fmt 1.00 | len 58 | kl 0.0007
+step  145 | reward 1.391 | acc 0.89 | fmt 1.00 | len 56 | kl 0.0013
+step  150 | reward 1.438 | acc 0.94 | fmt 1.00 | len 58 | kl 0.0007
+step  155 | reward 1.406 | acc 0.92 | fmt 0.97 | len 58 | kl 0.0038
+step  160 | reward 1.469 | acc 0.97 | fmt 1.00 | len 58 | kl 0.0006
+step  165 | reward 1.281 | acc 0.78 | fmt 1.00 | len 57 | kl 0.0140
+step  170 | reward 1.484 | acc 0.98 | fmt 1.00 | len 57 | kl 0.0001
+step  175 | reward 1.422 | acc 0.92 | fmt 1.00 | len 58 | kl 0.0019
+step  180 | reward 1.312 | acc 0.81 | fmt 1.00 | len 57 | kl 0.0065
+step  185 | reward 1.484 | acc 0.98 | fmt 1.00 | len 57 | kl 0.0053
+step  190 | reward 1.453 | acc 0.95 | fmt 1.00 | len 57 | kl 0.0009
+step  195 | reward 1.438 | acc 0.94 | fmt 1.00 | len 58 | kl 0.0019
+step  200 | reward 1.391 | acc 0.89 | fmt 1.00 | len 58 | kl 0.0012
+step  205 | reward 1.305 | acc 0.86 | fmt 0.89 | len 58 | kl 0.0171
+step  210 | reward 1.484 | acc 0.98 | fmt 1.00 | len 58 | kl 0.0001
+step  215 | reward 1.438 | acc 0.94 | fmt 1.00 | len 57 | kl 0.0007
+step  220 | reward 1.422 | acc 0.92 | fmt 1.00 | len 57 | kl 0.0038
+step  225 | reward 1.375 | acc 0.89 | fmt 0.97 | len 60 | kl 0.0102
+step  230 | reward 1.406 | acc 0.91 | fmt 1.00 | len 58 | kl 0.0025
+step  235 | reward 1.438 | acc 0.94 | fmt 1.00 | len 56 | kl 0.0023
+step  240 | reward 1.430 | acc 0.94 | fmt 0.98 | len 58 | kl 0.0023
+step  245 | reward 1.391 | acc 0.89 | fmt 1.00 | len 58 | kl 0.0049
+step  249 | reward 1.453 | acc 0.95 | fmt 1.00 | len 57 | kl 0.0004
+after RL (greedy): accuracy=100.00% format=100.00%
+--- final samples ---
+   16+44=<think>6+4=10,10+40=50,50+10=60</think><answer>60</answer>   [truth=60 OK]
+   62+44=<think>2+4=6,60+40=100,100+6=106</think><answer>106</answer>   [truth=106 OK]
+   58-14=<think>50-10=40,8-4=4,40+4=44</think><answer>44</answer>   [truth=44 OK]
+   53-52=<think>50-50=0,3-2=1,0+1=1</think><answer>1</answer>   [truth=1 OK]
+   30+27=<think>0+7=7,30+20=50,50+7=57</think><answer>57</answer>   [truth=57 OK]

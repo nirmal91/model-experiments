@@ -14,3 +14,22 @@ step  2500 | train 1.5375 | val 1.7052 | lr 1.64e-04 | 2279s
 step  2750 | train 1.5272 | val 1.7065 | lr 1.16e-04 | 2890s
 step  2999 | train 1.5167 | val 1.6863 | lr 1.00e-04 | 3535s
 saved gpt_shakespeare.pt
+--- sample ---
+
+And my lords their of old the foes,
+Let to me to this heart the valious all father,
+Of yet to stay an I will kind blusters grown.
+
+DUCHESSS OF YORRK:
+But in you love; thought yet time.
+
+KING RICHARD III:
+Kfail not nece exite the give to woulders:
+The comistage to so me word in my slay to betters.
+
+SICINIUS:
+How do man down then about all our mine. I best,
+Or wuth in his affect not could to their despation,
+The be which of by have black and more mand
+With on partion ghind to make done to then,
+Th
