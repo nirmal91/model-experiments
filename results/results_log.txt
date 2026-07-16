@@ -1,0 +1,46 @@
+
+=== exp1_perception_overhang ===
+Longest protocol each perception level supports:
+  per-step p  N @ 50% success  N @ 90% success
+       85.0%                4                0
+       95.0%               13                2
+       99.0%               68               10
+       99.9%              692              105
+
+85% -> 99% multiplies feasible protocol length by 17x (4 -> 68 steps at 50% success).
+
+=== exp2_action_space_dimensionality ===
+  d   expected 1/eps^d  measured median
+  2                 16               12
+  3                 64               46
+  4                256              188
+  5              1,024              812
+  6              4,096            2,842
+  7             16,384           12,318
+
+4-DoF -> 6-DoF at eps=0.25: 16x more exploration per hit.
+Grid coverage at 10 bins/dim: 10^4 = 10,000 vs 10^6 = 1,000,000 cells (100x).
+
+=== exp3_delta_actions_vs_primitives ===
+ pose acc   modular   delta
+    85.0%     81.8%   83.0%
+    90.0%     85.8%   85.2%
+    95.0%     90.7%   84.8%
+    99.0%     96.9%   83.2%
+    99.5%     98.0%   84.0%
+    99.9%     98.7%   83.0%
+
+Shakiness — path-length ratio: modular 1.00 (planned straight) vs delta 1.05; heading jitter: modular ~0 deg/tick vs delta 27.4 deg/tick.
+Note: at ~85-90% pose accuracy the two are comparable — the closed delta loop re-observes every tick, which averages out weak perception. The crossover is the point: once perception is near-perfect, one planned primitive call beats servoing, and only the modular stack rides the external model's 85%->99.9% jump.
+
+=== exp4_vla_vs_world_model ===
+ episodes  VLA-style  world-model
+        1      39.5%        21.9%
+        2      52.1%        33.3%
+        4      70.8%        46.8%
+        8      87.0%        69.8%
+       16      92.5%        85.6%
+       32      98.2%        95.5%
+       64      99.4%        98.2%
+
+Same data, two prediction targets, converging capability — the dichotomy is architectural, not fundamental.
