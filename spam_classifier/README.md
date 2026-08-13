@@ -7,6 +7,7 @@ One file, no libraries, pure Python. It's a single-neuron model
 python3 spam_classifier.py          # model 1: 3 hand-picked features
 python3 spam_from_scratch.py        # workbook — build model 1 yourself
 python3 spam_classifier_bow.py      # model 2: bag-of-words (learns its own words)
+python3 spam_bow_from_scratch.py    # workbook — build model 2 yourself
 ```
 
 ## What kind of learning is this?
