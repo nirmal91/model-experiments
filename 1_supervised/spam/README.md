@@ -13,6 +13,8 @@ for each epoch:                          # do the homework set again
 
 Then stop. The fitted weights + bias **are the classifier**: new email in, spam / not spam out.
 
+These files live in `1_supervised/spam/`. This folder is supervised learning on spam emails. Run the commands below from here. Later kinds of models get their own numbered folder next to `1_supervised/`.
+
 Files are numbered in learning order. **1a** and **1b** are the same model (two writeups). Next *model* is **2**. **3** is not built yet (train/test split).
 
 ```
