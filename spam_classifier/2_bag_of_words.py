@@ -2,10 +2,10 @@
 The next model: bag-of-words logistic regression.
 ==================================================
 
-Same machine as spam_classifier.py -- ONE neuron, a sigmoid, and a plain `for`
+Same machine as 1a_hand_features.py -- ONE neuron, a sigmoid, and a plain `for`
 loop of gradient descent. We change exactly ONE thing: the input.
 
-Before (spam_classifier.py):
+Before (1a_hand_features.py):
     You hand-picked 3 features and hand-wrote a SPAM_WORDS list. The model
     only learned HOW MUCH each of your 3 features mattered.
 

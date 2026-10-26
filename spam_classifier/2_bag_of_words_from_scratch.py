@@ -2,7 +2,7 @@
 WORKBOOK: build the bag-of-words spam classifier yourself (Model 2).
 ====================================================================
 
-Same idea as spam_from_scratch.py, one level up. In Model 1 you hand-wrote a
+Same idea as 1a_hand_features.py, one level up. In Model 1 you hand-wrote a
 SPAM_WORDS list. Here there is NO such list: you build a VOCABULARY from the
 training emails and give the model ONE weight per word, so it learns which
 words are spammy on its own.
@@ -10,12 +10,12 @@ words are spammy on its own.
 Fill in every spot marked  # >>> YOUR CODE HERE.
 Each blank has a hint telling you the one or two lines to write.
 
-Run it any time:   python3 spam_bow_from_scratch.py
+Run it any time:   python3 2_bag_of_words_from_scratch.py
 While the blanks are empty it will FAIL the self-check -- that's expected.
 Keep filling them in and re-running. When it prints "ALL CHECKS PASSED",
 you've rebuilt Model 2 from scratch.
 
-Stuck? Peek at the finished version in spam_classifier_bow.py.
+Stuck? Peek at the finished version in 2_bag_of_words.py.
 """
 
 import math

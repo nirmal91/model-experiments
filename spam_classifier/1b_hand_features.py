@@ -10,6 +10,9 @@ adds them up, and squashes the result into a probability. Training is just a
 
 No libraries. Only the Python standard library. Every number is visible.
 
+Same model as 1a_hand_features.py — not a later step. This file is the longer
+demo: named weights, log loss, training-set scorecard, fresh emails.
+
 The 5 things we do (matching the plan):
   1. Go through a lot of examples (a small labeled dataset of emails).
   2. Learn just THREE weights (+ one bias), one per feature.

@@ -1,16 +1,18 @@
 """
-WORKBOOK: build the spam classifier yourself.
-==============================================
+Model 1 — one neuron, three hand-picked features, trained by two for-loops.
 
-Fill in every spot marked  # >>> YOUR CODE HERE.
-Each blank has a hint telling you exactly what one or two lines to write.
+The loop (see README.md for names: epoch, loss, classifier, supervised):
 
-Run it any time:   python3 spam_from_scratch.py
-While blanks are empty it will fail or misbehave -- that's expected. Keep
-filling them in and re-running. When the self-check at the bottom prints
-"ALL CHECKS PASSED", you've rebuilt the whole model from scratch.
+    for each epoch:
+        for each labeled email:
+            guess = sigmoid(w·x + bias)     # produce a result
+            error = label - guess           # vs expected
+            nudge weights and bias          # reduce that gap
+        print average |error|               # loss = scoreboard for the epoch
 
-If you get stuck, peek at the finished version in spam_classifier.py.
+After this returns, learning is done. is_spam_or_not() is the classifier.
+
+Same model as 1b_hand_features.py (longer demo). Next model: 2_bag_of_words_from_scratch.py.
 """
 
 import math

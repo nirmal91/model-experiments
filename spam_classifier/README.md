@@ -1,60 +1,74 @@
-# The simplest machine that learns: a spam classifier
+# Model 1 — the basic learning loop
 
-One file, no libraries, pure Python. It's a single-neuron model
-(logistic regression) trained by a plain `for` loop.
+This is the whole machine, independent of any one training run.
 
-```bash
-python3 spam_classifier.py          # model 1: 3 hand-picked features
-python3 spam_from_scratch.py        # workbook — build model 1 yourself
-python3 spam_classifier_bow.py      # model 2: bag-of-words (learns its own words)
-python3 spam_bow_from_scratch.py    # workbook — build model 2 yourself
+```
+for each epoch:                          # do the homework set again
+    for each labeled email:              # one row of training data
+        guess  = model(email)            # produce a result (probability)
+        error  = label - guess           # result vs expected
+        nudge weights and bias           # so the next guess is less wrong
+    report loss                          # average |error| that epoch (scoreboard)
 ```
 
-## What kind of learning is this?
+Then stop. The fitted weights + bias **are the classifier**: new email in, spam / not spam out.
 
-**Supervised learning** — specifically **binary classification** with
-**logistic regression** (one neuron).
+Files are numbered in learning order. **1a** and **1b** are the same model (two writeups). Next *model* is **2**. **3** is not built yet (train/test split).
 
-| Term | What it means here |
-|------|--------------------|
-| Supervised | Every training email comes with a **label** (`1` = spam, `0` = ham). The model learns by comparing its guess to that label. |
-| Unsupervised | No labels — find structure on your own (clusters, topics). This project is **not** that. |
-| Classification | Output is a category (spam vs not), not a continuous number like price. |
-| Logistic regression | Weighted sum of features → sigmoid → probability in (0, 1). |
+```
+1a_hand_features.py                # START — model 1 as you built it
+1b_hand_features.py                # same model; longer demo, not a new step
+2_bag_of_words_from_scratch.py     # NEXT — fill in the blanks
+2_bag_of_words.py                  # model 2, finished
+# 3_train_test.py                  # not yet — hold some emails out and score them
+```
 
-### Features: you chose them (and that's still supervised)
+```bash
+python3 1a_hand_features.py
+python3 2_bag_of_words_from_scratch.py
+python3 2_bag_of_words.py
+```
 
-We **hard-coded three features** we care about:
+---
 
-1. count of known spammy words  
-2. count of `!`  
-3. whether the text has a link (`http` / `www`)
+## The four beats
 
-That does **not** make it unsupervised. Supervised vs unsupervised is about
-**labels**, not about who invents the features.
+**1. Iterate through epochs.**  
+An epoch is one full pass over every training email. One pass is not enough; weights only move a little. Repeat (here: 200 times) until they settle. That settling is convergence.
 
-- Classic supervised ML: **you** (or a pipeline) define features; the model
-  only learns **weights**.
-- Neural nets / representation learning: the model can learn useful internal
-  features from raw input — still usually **supervised** if you have labels.
-- Unsupervised: no labels at all.
+**2. Each epoch, go through all training data and produce a result.**  
+For each row: turn the email into three numbers, take `weighted sum + bias`, squash with a sigmoid. The result is `p(spam)` between 0 and 1.
 
-So: hard-coded features + labeled emails = supervised learning with
-**hand-engineered features**. Features do not have to "show up organically"
-for learning to count as supervised.
+**3. Measure result vs expected.**  
+Expected is the **label** (`1` = spam, `0` = ham). The signed gap `error = label - guess` is what training uses. **Loss** is the epoch scoreboard — here, average `|error|`. Loss tells you the loop is working; it is not itself the knob-twist.
 
-## The mental model (learnings)
+**4. Adjust weights and bias to reduce that gap.**  
+In this file the nudge happens **after every email**, not once at the end of the epoch:
 
-1. **Decide features** — what numbers describe an email?
-2. **For each email**, compute those features (`get_features`).
-3. **Guess** — `z = w·x + bias`, then `p = sigmoid(z)`.
-4. **Compare** to the label → `error = label - predicted` (signed).
-5. **Update** weights and bias from that error (this is the learning).
-6. **Loss** is a dashboard only — e.g. average `|error|` or log loss. It
-   tells you if you're making progress; it does **not** drive the update.
-   The update uses `error` (and learning rate × feature).
+```
+weight[i] += learning_rate × error × feature[i]
+bias      += learning_rate × error
+```
 
-Repeat over many epochs; weights converge; loss should fall.
+Same shared knobs for every row. A row with bigger features or a bigger error moves them more.
+
+After training there is no more adjusting. `is_spam_or_not` only: features → probability → `True` if `> 0.5`.
+
+---
+
+## Names (Model 1)
+
+| Jargon | Here |
+|--------|------|
+| Supervised learning | Every training email has a **label**. That is what “supervised” means — not “a human picked the features.” |
+| Hand-engineered features | A human *did* pick the three measurements: spam-word count, `!` count, has-link. |
+| Classifier | The finished function: email → spam / not spam. Training produces it. |
+| Weights + bias | The knobs. Start at 0. After training they *are* the model. |
+| Epoch | One lap through all 10 emails. |
+| Learning rate | How hard each nudge twists the knobs (`0.1`). |
+| Loss | Scoreboard for the epoch, not the update itself. |
+
+Supervised vs unsupervised is about **labels**. Who invents the features is a separate choice (this model: you).
 
 ```
                 w1
@@ -65,32 +79,15 @@ Repeat over many epochs; weights converge; loss should fall.
    x3 (has link) ───┘
 ```
 
-## The 5 steps, mapped to the code
+---
 
-| Step | Idea | Where |
-|------|------|-------|
-| 1 | Go through many labeled examples | `TRAINING_EMAILS` |
-| 2 | Find the 2–3 weights | 3 features → `weights = [w1, w2, w3]` + `bias` |
-| 3 | Weighted sum → probability | `predict_probability()` + `sigmoid()` |
-| 4 | Try a fresh input | `classify()` / `is_spam_or_not()` |
-| 5 | A `for` loop of learning | `train()` / `build_model()` — watch loss fall |
+## Notes that stay true after the run
 
-## The whole learning rule (that's it)
+- One set of weights for every row. Equal *vote count*, not equal *volume*: loud feature values and stubborn errors yank harder.
+- Updating every row can be a lot of adjustment. If loss bounces, the learning rate is too high, or you would batch (one averaged update per epoch).
+- With only 10 emails, one odd row is 10% of the data. Outliers speak loudly. Nothing here clips them.
 
-For each example, over and over:
-
-```
-prediction = sigmoid(w·x + bias)     # what the model currently thinks
-error      = label − prediction      # how wrong (signed)
-weight[i] += rate · error · feature[i]   # nudge toward less wrong
-bias      += rate · error
-loss      += abs(error)              # dashboard only
-```
-
-(Equivalent form: `error = prediction − label` and subtract instead of add.)
-
-Repeat enough times and the weights **converge**. Loss should drop from
-~coin-flip territory toward something small (e.g. ~0.006 on this tiny set).
+---
 
 ## Things worth trying
 
@@ -102,7 +99,7 @@ Repeat enough times and the weights **converge**. Loss should drop from
 
 ---
 
-# Model 2: bag-of-words (the next step) — `spam_classifier_bow.py`
+# Model 2: bag-of-words — `2_bag_of_words.py`
 
 Same neuron. Same sigmoid. Same `for`-loop update. **One thing changes: the input.**
 
